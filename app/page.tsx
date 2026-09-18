@@ -6,7 +6,7 @@ const projects = [
     number:"01", category:"Spatial AI / Remote Sensing",
     title:"Mapping Informal Settlements of Kabul with Deep Learning",
     tools:"PyTorch · UAV · GIS",
-    imageLabel:"Kabul / semantic segmentation",
+    imageLabel:"Kabul / semantic segmentation", href:"/work/kabul",
     description:"A city-scale geospatial AI workflow for mapping Kabul’s informal settlements from very-high-resolution UAV imagery. The work combines manually updated masks, multi-temporal imagery and semantic segmentation with DeepLabV3+ to produce a reproducible mapping asset and examine urban change."
   },
   {
