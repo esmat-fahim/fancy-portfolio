@@ -1,30 +1,294 @@
 import Link from "next/link";
 
-const metrics=[["85.8%","test accuracy"],["0.75","mean IoU"],["37.5 km²","informal-settlement expansion, 2011–2024"],["1,030 km²","citywide study area"]];
+const metrics = [
+  ["85.8%", "test accuracy"],
+  ["0.75", "mean IoU"],
+  ["37.5 km²", "informal-settlement expansion, 2011–2024"],
+  ["1,030 km²", "citywide study area"],
+];
 
-export default function KabulCaseStudy(){
-return <main>
-<header className="container pt-8 md:pt-12"><Link href="/#work" className="eyebrow hover:underline">← Back to selected work</Link></header>
+export default function KabulCaseStudy() {
+  return (
+    <main>
+      <header className="container pt-8 md:pt-12">
+        <Link href="/#work" className="eyebrow hover:underline">
+          ← Back to selected work
+        </Link>
+      </header>
 
-<section className="container pt-20 md:pt-28 pb-20"><div className="max-w-5xl"><div className="eyebrow mb-6">01 / Spatial AI · Remote Sensing</div><h1 className="text-[clamp(3.2rem,8vw,7.5rem)] leading-[.9] tracking-[-.065em] font-medium">Mapping Kabul’s<br/><i>informal settlements</i><br/>with deep learning.</h1><div className="mt-9 grid md:grid-cols-12 gap-8"><p className="md:col-span-6 text-xl md:text-2xl leading-8 tracking-tight">A city-scale geospatial AI workflow for mapping informal settlements from very-high-resolution UAV imagery and measuring how they changed over time.</p><div className="md:col-span-3 md:col-start-10"><div className="eyebrow text-neutral-500">Location</div><div className="mt-2 text-lg">Kabul, Afghanistan</div></div></div></div></section>
+      <section className="container pt-20 md:pt-28 pb-20">
+        <div className="max-w-5xl">
+          <div className="eyebrow mb-6">01 / Spatial AI · Remote Sensing</div>
+          <h1 className="text-[clamp(3.2rem,8vw,7.5rem)] leading-[.9] tracking-[-.065em] font-medium">
+            Mapping Kabul’s
+            <br />
+            <i>informal settlements</i>
+            <br />
+            with deep learning.
+          </h1>
+          <div className="mt-9 grid md:grid-cols-12 gap-8">
+            <p className="md:col-span-6 text-xl md:text-2xl leading-8 tracking-tight">
+              A city-scale geospatial AI workflow for mapping informal settlements
+              from very-high-resolution UAV imagery and measuring how they changed
+              over time.
+            </p>
+            <div className="md:col-span-3 md:col-start-10">
+              <div className="eyebrow text-neutral-500">Location</div>
+              <div className="mt-2 text-lg">Kabul, Afghanistan</div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<section className="container pb-24"><div className="case-visual case-visual-hero"><div className="case-visual-grid"/><div className="case-visual-label">Kabul · UAV imagery · semantic segmentation</div></div></section>
+      <section className="container pb-24">
+        <figure className="overflow-hidden border border-neutral-200 bg-neutral-100">
+          <img
+            src="/images/kabul/hero.jpg"
+            alt="Kabul urban landscape and informal settlement context"
+            className="block w-full h-auto"
+          />
+          <figcaption className="px-4 py-3 text-xs text-neutral-500">
+            Kabul · source visual from the KISS / Habitat International material
+          </figcaption>
+        </figure>
+      </section>
 
-<section className="border-y border-neutral-300"><div className="container py-20 grid md:grid-cols-12 gap-10"><div className="md:col-span-3 eyebrow">The problem</div><div className="md:col-span-7 md:col-start-5 text-xl md:text-2xl leading-8">Informal settlement growth in Kabul is spatially complex and difficult to monitor consistently. Existing global datasets provide limited coverage of the city, while conventional mapping approaches can be slow to update. The project asked whether very-high-resolution UAV imagery and semantic segmentation could provide a repeatable city-scale mapping workflow.</div></div></section>
+      <section className="border-y border-neutral-300">
+        <div className="container py-20 grid md:grid-cols-12 gap-10">
+          <div className="md:col-span-3 eyebrow">The problem</div>
+          <div className="md:col-span-7 md:col-start-5 text-xl md:text-2xl leading-8">
+            Informal settlement growth in Kabul is spatially complex and difficult
+            to monitor consistently. Existing global datasets provide limited
+            coverage of the city, while conventional mapping approaches can be
+            slow to update. The project asked whether very-high-resolution UAV
+            imagery and semantic segmentation could provide a repeatable
+            city-scale mapping workflow.
+          </div>
+        </div>
+      </section>
 
-<section className="container py-20 grid md:grid-cols-12 gap-10"><div className="md:col-span-3 eyebrow">My role</div><div className="md:col-span-7 md:col-start-5 text-[17px] leading-7 text-neutral-600">I built the end-to-end geospatial ML workflow: imagery and mask preparation, spatial patching, train/validation/test design, model training and comparison, evaluation, city-scale inference, geospatial output handling, and multi-temporal change analysis.</div></section>
+      <section className="container py-20 grid md:grid-cols-12 gap-10">
+        <div className="md:col-span-3 eyebrow">My role</div>
+        <div className="md:col-span-7 md:col-start-5 text-[17px] leading-7 text-neutral-600">
+          I built the end-to-end geospatial ML workflow: imagery and mask
+          preparation, spatial patching, train/validation/test design, model
+          training and comparison, evaluation, city-scale inference, geospatial
+          output handling, and multi-temporal change analysis.
+        </div>
+      </section>
 
-<section className="bg-neutral-900 text-neutral-100"><div className="container py-20"><div className="eyebrow text-neutral-400 mb-8">Key result</div><div className="grid md:grid-cols-4 gap-8">{metrics.map(([value,label])=><div key={label} className="border-t border-neutral-700 pt-4"><div className="text-4xl md:text-5xl tracking-tight">{value}</div><div className="mt-2 text-sm text-neutral-400">{label}</div></div>)}</div><p className="mt-12 max-w-3xl text-lg leading-7 text-neutral-300">The resulting maps estimate informal-settlement area at 99.4 km² in 2011 and 136.9 km² in 2024, an absolute increase of 37.5 km².</p></div></section>
+      <section className="bg-neutral-900 text-neutral-100">
+        <div className="container py-20">
+          <div className="eyebrow text-neutral-400 mb-8">Key result</div>
+          <div className="grid md:grid-cols-4 gap-8">
+            {metrics.map(([value, label]) => (
+              <div key={label} className="border-t border-neutral-700 pt-4">
+                <div className="text-4xl md:text-5xl tracking-tight">{value}</div>
+                <div className="mt-2 text-sm text-neutral-400">{label}</div>
+              </div>
+            ))}
+          </div>
+          <p className="mt-12 max-w-3xl text-lg leading-7 text-neutral-300">
+            The resulting maps estimate informal-settlement area at 99.4 km² in
+            2011 and 136.9 km² in 2024, an absolute increase of 37.5 km².
+          </p>
+        </div>
+      </section>
 
-<section className="container py-24"><div className="grid md:grid-cols-12 gap-10"><div className="md:col-span-3 eyebrow">Engineering story</div><div className="md:col-span-8 md:col-start-5 space-y-14"><div><div className="eyebrow text-neutral-500">01 / Challenge</div><h2 className="mt-3 text-3xl md:text-4xl tracking-tight">Make high-resolution imagery usable at city scale.</h2><p className="mt-5 text-neutral-600 leading-7">The source imagery covered a large geographic extent at very high spatial resolution. Training directly on full rasters was impractical, so the workflow had to turn large geospatial images into consistent learning units without losing useful spatial context.</p></div><div><div className="eyebrow text-neutral-500">02 / Approach</div><h2 className="mt-3 text-3xl md:text-4xl tracking-tight">Build a controlled segmentation pipeline.</h2><p className="mt-5 text-neutral-600 leading-7">Imagery was resampled to 0.4 m ground sampling distance and divided into 224 × 224 pixel patches, corresponding to roughly 90 × 90 m on the ground. The three classes were formal settlement, informal settlement, and background.</p></div><div><div className="eyebrow text-neutral-500">03 / Key decisions</div><ul className="mt-5 space-y-4 text-neutral-600 leading-7"><li><strong className="text-neutral-900">Temporal consistency:</strong> corresponding locations across 2011, 2017 and 2024 were kept spatially consistent to support meaningful change analysis.</li><li><strong className="text-neutral-900">Transfer learning:</strong> a ResNet-101 backbone pretrained on ImageNet was used rather than training the feature extractor from scratch.</li><li><strong className="text-neutral-900">Reproducibility over novelty:</strong> the focus was a transparent, reusable mapping workflow rather than a new neural architecture.</li><li><strong className="text-neutral-900">City-scale inference:</strong> overlapping sliding-window inference reconstructed continuous geospatial predictions from fixed-size patches.</li></ul></div></div></div></section>
+      <section className="container py-24">
+        <div className="grid md:grid-cols-12 gap-10">
+          <div className="md:col-span-3 eyebrow">Engineering story</div>
+          <div className="md:col-span-8 md:col-start-5 space-y-14">
+            <div>
+              <div className="eyebrow text-neutral-500">01 / Challenge</div>
+              <h2 className="mt-3 text-3xl md:text-4xl tracking-tight">
+                Make high-resolution imagery usable at city scale.
+              </h2>
+              <p className="mt-5 text-neutral-600 leading-7">
+                The source imagery covered a large geographic extent at very high
+                spatial resolution. Training directly on full rasters was
+                impractical, so the workflow had to turn large geospatial images
+                into consistent learning units without losing useful spatial
+                context.
+              </p>
+            </div>
 
-<section className="border-y border-neutral-300"><div className="container py-24"><div className="grid md:grid-cols-12 gap-10"><div className="md:col-span-3 eyebrow">Scientific approach</div><div className="md:col-span-8 md:col-start-5"><p className="text-2xl md:text-4xl leading-tight tracking-tight">Pixel-level classification turns raw UAV imagery into a spatially explicit representation of the urban fabric.</p><div className="mt-12 grid md:grid-cols-2 gap-8">{[["Input","RGB UAV imagery from 2011, 2017 and 2024, resampled to 0.4 m GSD."],["Target","Three-class semantic segmentation: formal, informal and background."],["Model","DeepLabV3 with a ResNet-101 backbone, using atrous convolutions to capture multi-scale spatial context."],["Training","ImageNet normalization, cross-entropy loss, Adam at 1×10⁻⁴, StepLR, random horizontal/vertical flips, batch size 16 and early stopping based on validation loss."],["Evaluation","Accuracy and segmentation metrics, with mean IoU used as the principal overlap measure."],["Change analysis","Citywide predictions were compared across years to quantify changes in formal, informal and background classes."]].map(([h,p])=><div key={h} className="border-t border-neutral-300 pt-4"><div className="eyebrow text-neutral-500">{h}</div><p className="mt-3 text-neutral-600 leading-7">{p}</p></div>)}</div></div></div></div></section>
+            <div>
+              <div className="eyebrow text-neutral-500">02 / Approach</div>
+              <h2 className="mt-3 text-3xl md:text-4xl tracking-tight">
+                Build a controlled segmentation pipeline.
+              </h2>
+              <p className="mt-5 text-neutral-600 leading-7">
+                Imagery was resampled to 0.4 m ground sampling distance and divided
+                into 224 × 224 pixel patches, corresponding to roughly 90 × 90 m on
+                the ground. The three classes were formal settlement, informal
+                settlement, and background.
+              </p>
+            </div>
 
-<section className="container py-24"><div className="grid md:grid-cols-12 gap-10"><div className="md:col-span-3 eyebrow">From pixels to city</div><div className="md:col-span-8 md:col-start-5"><div className="case-visual case-visual-map"><div className="map-shape map-shape-a"/><div className="map-shape map-shape-b"/><div className="map-shape map-shape-c"/><div className="map-legend"><span>FORMAL</span><span>INFORMAL</span><span>BACKGROUND</span></div></div><p className="mt-5 text-sm text-neutral-500">Change-detection visualization for the 2011–2024 comparison.</p></div></div></section>
+            <div>
+              <div className="eyebrow text-neutral-500">03 / Key decisions</div>
+              <ul className="mt-5 space-y-4 text-neutral-600 leading-7">
+                <li>
+                  <strong className="text-neutral-900">Temporal consistency:</strong>{" "}
+                  corresponding locations across 2011, 2017 and 2024 were kept
+                  spatially consistent to support meaningful change analysis.
+                </li>
+                <li>
+                  <strong className="text-neutral-900">Transfer learning:</strong>{" "}
+                  a ResNet-101 backbone pretrained on ImageNet was used rather than
+                  training the feature extractor from scratch.
+                </li>
+                <li>
+                  <strong className="text-neutral-900">Reproducibility over novelty:</strong>{" "}
+                  the focus was a transparent, reusable mapping workflow rather than
+                  a new neural architecture.
+                </li>
+                <li>
+                  <strong className="text-neutral-900">City-scale inference:</strong>{" "}
+                  overlapping sliding-window inference reconstructed continuous
+                  geospatial predictions from fixed-size patches.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<section className="bg-neutral-100 border-y border-neutral-300"><div className="container py-24 grid md:grid-cols-12 gap-10"><div className="md:col-span-3 eyebrow">Why it matters</div><div className="md:col-span-8 md:col-start-5"><p className="text-2xl md:text-4xl leading-tight tracking-tight">The output is not just a segmentation model. It is a reproducible geospatial workflow for turning high-resolution imagery into evidence about urban change.</p><p className="mt-8 max-w-3xl text-neutral-600 leading-7">The KISS project combines an annotated multi-temporal dataset, deep-learning segmentation and post-classification change analysis so that the same spatial framework can be used to examine where settlement patterns are changing.</p></div></div></section>
+      <section className="border-y border-neutral-300">
+        <div className="container py-24">
+          <div className="grid md:grid-cols-12 gap-10">
+            <div className="md:col-span-3 eyebrow">Scientific approach</div>
+            <div className="md:col-span-8 md:col-start-5">
+              <p className="text-2xl md:text-4xl leading-tight tracking-tight">
+                Pixel-level classification turns raw UAV imagery into a spatially
+                explicit representation of the urban fabric.
+              </p>
 
-<section className="container py-20"><div className="grid md:grid-cols-12 gap-10"><div className="md:col-span-3 eyebrow">Project stack</div><div className="md:col-span-8 md:col-start-5 flex flex-wrap gap-2">{["Python","PyTorch","DeepLabV3","ResNet-101","UAV imagery","QGIS","Rasterio","GDAL","GeoTIFF","Semantic segmentation","Change detection"].map(x=><span key={x} className="border border-neutral-300 px-3 py-2 text-sm">{x}</span>)}</div></div></section>
+              <div className="mt-12 grid md:grid-cols-2 gap-8">
+                {[
+                  ["Input", "RGB UAV imagery from 2011, 2017 and 2024, resampled to 0.4 m GSD."],
+                  ["Target", "Three-class semantic segmentation: formal, informal and background."],
+                  ["Model", "DeepLabV3 with a ResNet-101 backbone, using atrous convolutions to capture multi-scale spatial context."],
+                  ["Training", "ImageNet normalization, cross-entropy loss, Adam at 1×10⁻⁴, StepLR, random horizontal/vertical flips, batch size 16 and early stopping based on validation loss."],
+                  ["Evaluation", "Accuracy and segmentation metrics, with mean IoU used as the principal overlap measure."],
+                  ["Change analysis", "Citywide predictions were compared across years to quantify changes in formal, informal and background classes."],
+                ].map(([h, p]) => (
+                  <div key={h} className="border-t border-neutral-300 pt-4">
+                    <div className="eyebrow text-neutral-500">{h}</div>
+                    <p className="mt-3 text-neutral-600 leading-7">{p}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<footer className="border-t border-neutral-300"><div className="container py-8 flex justify-between"><Link href="/#work" className="eyebrow hover:underline">← Selected work</Link><span className="eyebrow text-neutral-500">Kabul · Spatial AI</span></div></footer>
-</main>}
+      <section className="container py-24">
+        <div className="grid md:grid-cols-12 gap-10">
+          <div className="md:col-span-3 eyebrow">Imagery → mask</div>
+          <div className="md:col-span-8 md:col-start-5">
+            <div className="grid md:grid-cols-2 gap-5">
+              <figure className="overflow-hidden border border-neutral-200">
+                <img
+                  src="/images/kabul/uav-example.jpg"
+                  alt="UAV imagery example from the KISS material"
+                  className="block w-full h-auto"
+                />
+                <figcaption className="px-4 py-3 text-xs text-neutral-500">
+                  UAV imagery example
+                </figcaption>
+              </figure>
+              <figure className="overflow-hidden border border-neutral-200">
+                <img
+                  src="/images/kabul/mask-example.jpg"
+                  alt="Settlement mapping example from the KISS material"
+                  className="block w-full h-auto"
+                />
+                <figcaption className="px-4 py-3 text-xs text-neutral-500">
+                  Settlement / mapping example
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="container pb-24">
+        <div className="grid md:grid-cols-12 gap-10">
+          <div className="md:col-span-3 eyebrow">From pixels to city</div>
+          <div className="md:col-span-8 md:col-start-5">
+            <figure className="overflow-hidden border border-neutral-200 bg-neutral-100">
+              <img
+                src="/images/kabul/change-map.jpg"
+                alt="Kabul settlement change map from the KISS material"
+                className="block w-full h-auto"
+              />
+              <figcaption className="px-4 py-3 text-xs text-neutral-500">
+                Kabul settlement-change context · KISS / Habitat International material
+              </figcaption>
+            </figure>
+            <p className="mt-5 text-sm text-neutral-500">
+              The case study combines source imagery, model outputs and geospatial
+              change analysis to move from individual pixels to city-scale evidence.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-neutral-100 border-y border-neutral-300">
+        <div className="container py-24 grid md:grid-cols-12 gap-10">
+          <div className="md:col-span-3 eyebrow">Why it matters</div>
+          <div className="md:col-span-8 md:col-start-5">
+            <p className="text-2xl md:text-4xl leading-tight tracking-tight">
+              The output is not just a segmentation model. It is a reproducible
+              geospatial workflow for turning high-resolution imagery into evidence
+              about urban change.
+            </p>
+            <p className="mt-8 max-w-3xl text-neutral-600 leading-7">
+              The KISS project combines an annotated multi-temporal dataset,
+              deep-learning segmentation and post-classification change analysis so
+              that the same spatial framework can be used to examine where
+              settlement patterns are changing.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="container py-20">
+        <div className="grid md:grid-cols-12 gap-10">
+          <div className="md:col-span-3 eyebrow">Project stack</div>
+          <div className="md:col-span-8 md:col-start-5 flex flex-wrap gap-2">
+            {[
+              "Python",
+              "PyTorch",
+              "DeepLabV3",
+              "ResNet-101",
+              "UAV imagery",
+              "QGIS",
+              "Rasterio",
+              "GDAL",
+              "GeoTIFF",
+              "Semantic segmentation",
+              "Change detection",
+            ].map((x) => (
+              <span key={x} className="border border-neutral-300 px-3 py-2 text-sm">
+                {x}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <footer className="border-t border-neutral-300">
+        <div className="container py-8 flex justify-between">
+          <Link href="/#work" className="eyebrow hover:underline">
+            ← Selected work
+          </Link>
+          <span className="eyebrow text-neutral-500">Kabul · Spatial AI</span>
+        </div>
+      </footer>
+    </main>
+  );
+}
