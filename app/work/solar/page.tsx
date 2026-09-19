@@ -1,17 +1,19 @@
 import Link from "next/link";
 
 const metrics = [
-  ["~8%", "average roof irradiation over-estimation in the fair comparison"],
-  ["~2%", "average whole-building global irradiation over-estimation"],
-  ["12", "buildings compared under identical surrounding conditions"],
-  ["LOD3 → refined LOD2", "geometry strategy used to make detailed models usable in Sunpot"],
+  ["12", "buildings compared under identical surroundings"],
+  ["8%+", "average roof irradiation over-estimation in the fair comparison"],
+  ["~2%", "average whole-building irradiation over-estimation"],
+  ["37", "LOD2 buildings successfully matched to LOD3 buildings"],
 ];
 
 export default function SolarCaseStudy() {
   return (
     <main>
       <header className="container pt-8 md:pt-12">
-        <Link href="/#work" className="eyebrow hover:underline">← Back to selected work</Link>
+        <Link href="/#work" className="eyebrow hover:underline">
+          ← Back to selected work
+        </Link>
       </header>
 
       <section className="container pt-20 md:pt-28 pb-20">
@@ -19,14 +21,16 @@ export default function SolarCaseStudy() {
           <div className="eyebrow mb-6">02 / 3D Geospatial Analysis · Solar Energy</div>
           <h1 className="text-[clamp(3.2rem,8vw,7.5rem)] leading-[.9] tracking-[-.065em] font-medium">
             Solar irradiation
-            <br />with <i>refined 3D</i>
-            <br />building models.
+            <br />
+            with <i>refined 3D</i>
+            <br />
+            building models.
           </h1>
           <div className="mt-9 grid md:grid-cols-12 gap-8">
             <p className="md:col-span-6 text-xl md:text-2xl leading-8 tracking-tight">
-              A CityGML and FME workflow that preserved useful LOD3 building detail
-              while converting the geometry into a form supported by TUM's Sunpot
-              solar-potential tool.
+              A CityGML and FME workflow that transformed LOD3 building geometry
+              into a refined LOD2 representation so detailed roof and façade
+              characteristics could be evaluated with TUM's Sunpot tool.
             </p>
             <div className="md:col-span-3 md:col-start-10">
               <div className="eyebrow text-neutral-500">Location</div>
@@ -38,9 +42,13 @@ export default function SolarCaseStudy() {
 
       <section className="container pb-24">
         <figure className="overflow-hidden border border-neutral-200 bg-neutral-100">
-          <img src="/images/solar/lod2-refined.jpg" alt="LOD2 and refined LOD2 building comparison from the project report" className="block w-full h-auto" />
+          <img
+            src="/images/solar/lod2-refined.jpg"
+            alt="LOD2 and refined LOD2 building comparison from the project report"
+            className="block w-full h-auto"
+          />
           <figcaption className="px-4 py-3 text-xs text-neutral-500">
-            LOD2 versus refined LOD2 representation · project report, Figure 77
+            LOD2 versus refined LOD2 · solar irradiation project
           </figcaption>
         </figure>
       </section>
@@ -49,10 +57,11 @@ export default function SolarCaseStudy() {
         <div className="container py-20 grid md:grid-cols-12 gap-10">
           <div className="md:col-span-3 eyebrow">The problem</div>
           <div className="md:col-span-7 md:col-start-5 text-xl md:text-2xl leading-8">
-            TUM's Sunpot tool supports CityGML 2.0 buildings at LOD2, but not LOD3.
-            LOD3 contains openings and finer façade and roof geometry that can affect
-            solar irradiation. The project asked whether that information could be
-            retained without requiring Sunpot to operate directly on LOD3 models.
+            TUM's Sunpot tool supports CityGML 2.0 at LOD2, while the LOD3 models
+            contain more detailed roof and façade geometry, including openings.
+            The project investigated whether LOD3 detail could be retained in a
+            refined LOD2 representation and then compared with conventional LOD2
+            solar-irradiation estimates.
           </div>
         </div>
       </section>
@@ -61,9 +70,10 @@ export default function SolarCaseStudy() {
         <div className="md:col-span-3 eyebrow">My role</div>
         <div className="md:col-span-7 md:col-start-5 text-[17px] leading-7 text-neutral-600">
           I developed the preprocessing and transformation workflow in FME,
-          connected LOD2 and LOD3 building features spatially, handled geometry and
-          opening-related edge cases, produced refined LOD2 outputs, and compared
-          the resulting solar-irradiation estimates statistically.
+          spatially matched LOD2 and LOD3 buildings, handled feature and geometry
+          transformations, addressed openings and building installations, produced
+          refined LOD2 outputs, and performed the comparative solar-irradiation
+          analysis.
         </div>
       </section>
 
@@ -79,11 +89,12 @@ export default function SolarCaseStudy() {
             ))}
           </div>
           <p className="mt-12 max-w-3xl text-lg leading-7 text-neutral-300">
-            In the report's fair comparison, refined LOD2 produced lower roof
-            irradiation estimates on average, while whole-building differences were
-            smaller. The report concludes that the refined representation was closer
-            to the intended detailed geometry, although the whole-building effect was
-            relatively small.
+            Across the 12 buildings that could be fairly compared, conventional
+            LOD2 over-estimated global roof irradiation by just over 8% on average,
+            while whole-building global irradiation was over-estimated by around
+            2%. The report concludes that the refined LOD2 approach provides more
+            solar-irradiation sensitivity and supports the research hypothesis,
+            although the whole-building difference was of limited significance.
           </p>
         </div>
       </section>
@@ -95,44 +106,57 @@ export default function SolarCaseStudy() {
             <div>
               <div className="eyebrow text-neutral-500">01 / Challenge</div>
               <h2 className="mt-3 text-3xl md:text-4xl tracking-tight">
-                Preserve geometric nuance inside an LOD2-compatible workflow.
+                Make detailed LOD3 geometry usable in an LOD2-based solar workflow.
               </h2>
               <p className="mt-5 text-neutral-600 leading-7">
-                The central constraint was compatibility: Sunpot needed an LOD2
-                representation, while the analysis sought to retain the influence of
-                LOD3 openings, roof details and façade geometry.
+                Sunpot accepts CityGML 2.0 models at LOD2. The LOD3 source models,
+                however, included openings, building installations and more detailed
+                roof and façade structures. The challenge was to preserve relevant
+                geometric information while producing an output that Sunpot could
+                process.
               </p>
             </div>
 
             <div>
               <div className="eyebrow text-neutral-500">02 / Approach</div>
               <h2 className="mt-3 text-3xl md:text-4xl tracking-tight">
-                Build a refined LOD2 from LOD3 source geometry.
+                Spatially match, transform and rebuild the city-model features.
               </h2>
               <p className="mt-5 text-neutral-600 leading-7">
-                The workflow used FME transformers to spatially relate corresponding
-                LOD2 and LOD3 features, preserve feature-type information, manage
-                openings, orient geometry and merge the resulting features into a
-                Sunpot-compatible model.
+                Because the LOD2 and LOD3 datasets did not share matching GML IDs,
+                GroundSurface geometries were used to establish the correspondence.
+                FME workflows applied hull generation, 2D enforcement, buffering,
+                spatial relationships and feature merging before transforming the
+                LOD3 geometry into refined LOD2 output.
               </p>
             </div>
 
             <div>
               <div className="eyebrow text-neutral-500">03 / Key decisions</div>
               <ul className="mt-5 space-y-4 text-neutral-600 leading-7">
-                <li><strong className="text-neutral-900">Spatial matching:</strong> use spatial relationships rather than relying only on mismatched building IDs between the two datasets.</li>
-                <li><strong className="text-neutral-900">Feature provenance:</strong> retain an Original_Feature_Type attribute through the transformation pipeline.</li>
-                <li><strong className="text-neutral-900">Openings:</strong> use DonutHoleExtractor and related geometry operations so windows and doors could be represented in a usable form.</li>
-                <li><strong className="text-neutral-900">Controlled comparison:</strong> compare only buildings with identical surroundings so shadowing conditions remain comparable.</li>
+                <li>
+                  <strong className="text-neutral-900">Spatial matching:</strong>{" "}
+                  use GroundSurface geometry and a 5 m buffer to relate LOD3 and
+                  LOD2 buildings when GML IDs did not correspond.
+                </li>
+                <li>
+                  <strong className="text-neutral-900">Feature provenance:</strong>{" "}
+                  retain an <code>Original_Feature_Type</code> attribute through the
+                  transformation pipeline.
+                </li>
+                <li>
+                  <strong className="text-neutral-900">Opening handling:</strong>{" "}
+                  use Deaggregator, GeometryCoercer, DonutHoleExtractor and Orientor
+                  operations to process walls, building installations, doors and
+                  windows.
+                </li>
+                <li>
+                  <strong className="text-neutral-900">Controlled comparison:</strong>{" "}
+                  compare only buildings whose surrounding context was identical so
+                  shadowing conditions remained comparable.
+                </li>
               </ul>
             </div>
-
-            <figure className="overflow-hidden border border-neutral-200 bg-neutral-100">
-              <img src="/images/solar/lod2-refined.jpg" alt="LOD2 and refined LOD2 model comparison" className="block w-full h-auto" />
-              <figcaption className="px-4 py-3 text-xs text-neutral-500">
-                Source visual from the report: LOD2 versus refined LOD2.
-              </figcaption>
-            </figure>
           </div>
         </div>
       </section>
@@ -143,18 +167,19 @@ export default function SolarCaseStudy() {
             <div className="md:col-span-3 eyebrow">Scientific approach</div>
             <div className="md:col-span-8 md:col-start-5">
               <p className="text-2xl md:text-4xl leading-tight tracking-tight">
-                Treat building representation as an experimental variable in a
-                physics-informed spatial simulation.
+                Building representation was treated as a variable in solar
+                irradiation simulation, allowing detailed LOD3 geometry to be
+                compared with conventional LOD2 geometry.
               </p>
 
               <div className="mt-12 grid md:grid-cols-2 gap-8">
                 {[
-                  ["Input", "CityGML 2.0 semantic 3D city models representing buildings at LOD2 and LOD3."],
-                  ["Solar model", "TUM Sunpot calculates direct, diffuse and global irradiation plus Sky View Factor for roofs and walls."],
-                  ["Direct irradiation", "The Sunpot method combines a sun-position algorithm with a transition/shadow model."],
-                  ["Diffuse irradiation", "A simplified sky-dome representation and Standard Overcast Sky model are used for diffuse radiation and sky-view estimation."],
-                  ["Transformation", "FME was used to spatially relate features, transform geometry, manage openings and generate refined LOD2 outputs."],
-                  ["Statistical comparison", "The study compared annual irradiation across roofs, walls and whole buildings, with a fair subset restricted to identical surroundings."],
+                  ["Input", "CityGML 2.0 LOD2 buildings from Ingolstadt and more than 50 manually modelled LOD3 buildings."],
+                  ["LOD3 features", "Building, BuildingInstallation, BuildingPart, ClosureSurface, GroundSurface, OuterCeilingSurface, OuterFloorSurface, RoofSurface, WallSurface and Openings."],
+                  ["Solar model", "TUM Sunpot calculates direct, diffuse and global irradiation and Sky View Factor for building roofs and walls."],
+                  ["Direct irradiation", "Sunpot combines a transition/shadow model with a sun-position algorithm to calculate direct irradiation."],
+                  ["Diffuse irradiation", "A simplified sky-dome representation and Standard Overcast Sky model are used for diffuse irradiation and Sky View Factor."],
+                  ["Transformation", "FME was used to spatially relate features, preserve feature information, transform geometry and produce refined LOD2 outputs."],
                 ].map(([h, p]) => (
                   <div key={h} className="border-t border-neutral-300 pt-4">
                     <div className="eyebrow text-neutral-500">{h}</div>
@@ -163,14 +188,16 @@ export default function SolarCaseStudy() {
                 ))}
               </div>
 
-              <div className="mt-14 grid md:grid-cols-2 gap-5">
-                <figure className="overflow-hidden border border-neutral-200">
-                  <img src="/images/solar/lod2-refined.jpg" alt="Building model comparison used in the solar irradiation study" className="block w-full h-auto" />
-                  <figcaption className="px-4 py-3 text-xs text-neutral-500">Model comparison</figcaption>
-                </figure>
-                <figure className="overflow-hidden border border-neutral-200">
-                  <img src="/images/solar/lod2-refined.jpg" alt="Project visual from the solar irradiation report" className="block w-full h-auto" />
-                  <figcaption className="px-4 py-3 text-xs text-neutral-500">Detailed geometry retained in the refined model</figcaption>
+              <div className="mt-14">
+                <figure className="overflow-hidden border border-neutral-200 bg-neutral-100">
+                  <img
+                    src="/images/solar/lod2-refined.jpg"
+                    alt="LOD2 and refined LOD2 building comparison"
+                    className="block w-full h-auto"
+                  />
+                  <figcaption className="px-4 py-3 text-xs text-neutral-500">
+                    Building geometry comparison used in the project
+                  </figcaption>
                 </figure>
               </div>
             </div>
@@ -180,23 +207,37 @@ export default function SolarCaseStudy() {
 
       <section className="container py-24">
         <div className="grid md:grid-cols-12 gap-10">
-          <div className="md:col-span-3 eyebrow">Engineering detail</div>
+          <div className="md:col-span-3 eyebrow">From geometry to evidence</div>
           <div className="md:col-span-8 md:col-start-5">
             <p className="text-xl leading-8 text-neutral-700">
-              A major practical difficulty was that LOD3 geometries were not uniformly
-              clean. Some openings were not represented as perfect holes, some
-              windows were oriented inward, and some complex roof features did not
-              survive the transformation. The report therefore documents the limits
-              of the pipeline rather than treating every building as equally
-              transformable.
+              The fair comparison was restricted to 12 buildings because the
+              preprocessing and transformation pipeline could not produce valid,
+              comparable refined LOD2 models for every LOD3 building. More than 50
+              LOD3 buildings were available initially, but only 37 could be spatially
+              matched to LOD2 buildings, and the final comparison was further reduced
+              by geometry and surrounding-shadow constraints.
             </p>
-            <div className="mt-10 border-t border-neutral-300 pt-5">
-              <div className="eyebrow text-neutral-500">Reproducibility</div>
-              <p className="mt-3 text-neutral-600 leading-7">
-                The Sunpot analysis was also run in a Docker environment so that the
-                software setup and resulting calculations could be reproduced across
-                platforms.
-              </p>
+
+            <div className="mt-10 grid md:grid-cols-2 gap-8">
+              <div className="border-t border-neutral-300 pt-4">
+                <div className="eyebrow text-neutral-500">Roof effect</div>
+                <p className="mt-3 text-neutral-600 leading-7">
+                  Roof irradiation varied substantially between buildings. For
+                  example, LOD2 roof irradiation was 23.2% higher for building
+                  4018210 and 38.7% higher for building 4018128, while one building
+                  received 28.2% more roof irradiation in the refined LOD2 model.
+                </p>
+              </div>
+              <div className="border-t border-neutral-300 pt-4">
+                <div className="eyebrow text-neutral-500">Whole-building effect</div>
+                <p className="mt-3 text-neutral-600 leading-7">
+                  For the 12 fair comparisons, the report found an average
+                  whole-building over-estimation of around 2% with conventional LOD2.
+                  In the three-building opening-removal test, the reported
+                  over-estimation increased from 6.1% to 7.7%, from 3.7% to 8.7%,
+                  and from 12.7% to 15%.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -207,14 +248,16 @@ export default function SolarCaseStudy() {
           <div className="md:col-span-3 eyebrow">What I learned</div>
           <div className="md:col-span-8 md:col-start-5">
             <p className="text-2xl md:text-4xl leading-tight tracking-tight">
-              More geometric detail can matter — but only when the data pipeline can
-              preserve that detail reliably and the comparison controls for its
-              surrounding context.
+              More geometric detail can increase sensitivity to solar irradiation,
+              but the benefit depends on whether the transformation pipeline can
+              preserve that detail reliably and whether surrounding context is
+              controlled.
             </p>
             <p className="mt-8 max-w-3xl text-neutral-600 leading-7">
-              The project combined semantic 3D data, geometry processing, spatial
-              relationships and solar simulation. It was as much a data-engineering
-              problem as a simulation problem.
+              The project showed that complex manually modelled buildings can expose
+              limitations in a general transformation workflow. Complex openings,
+              inverted windows and missing roof features reduced the number of
+              buildings that could be compared properly.
             </p>
           </div>
         </div>
@@ -224,8 +267,20 @@ export default function SolarCaseStudy() {
         <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-3 eyebrow">Project stack</div>
           <div className="md:col-span-8 md:col-start-5 flex flex-wrap gap-2">
-            {["FME", "CityGML 2.0", "Sunpot", "Docker", "3D GIS", "Spatial analysis", "Solar irradiation"].map((x) => (
-              <span key={x} className="border border-neutral-300 px-3 py-2 text-sm">{x}</span>
+            {[
+              "FME",
+              "CityGML 2.0",
+              "TUM Sunpot",
+              "Docker",
+              "3D GIS",
+              "Spatial analysis",
+              "Solar irradiation",
+              "Ingolstadt LOD2",
+              "LOD3",
+            ].map((x) => (
+              <span key={x} className="border border-neutral-300 px-3 py-2 text-sm">
+                {x}
+              </span>
             ))}
           </div>
         </div>
@@ -233,7 +288,9 @@ export default function SolarCaseStudy() {
 
       <footer className="border-t border-neutral-300">
         <div className="container py-8 flex justify-between">
-          <Link href="/#work" className="eyebrow hover:underline">← Selected work</Link>
+          <Link href="/#work" className="eyebrow hover:underline">
+            ← Selected work
+          </Link>
           <span className="eyebrow text-neutral-500">Ingolstadt · 3D Geospatial Analysis</span>
         </div>
       </footer>
