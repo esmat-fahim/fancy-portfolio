@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const metrics = [
   ["85.8%", "test accuracy"],
   ["0.75", "mean IoU"],
@@ -11,9 +9,9 @@ export default function KabulCaseStudy() {
   return (
     <main>
       <header className="container pt-8 md:pt-12">
-        <Link href="/#work" className="eyebrow hover:underline">
+        <a href="/#work" className="eyebrow hover:underline">
           ← Back to selected work
-        </Link>
+        </a>
       </header>
 
       <section className="container pt-20 md:pt-28 pb-20">
@@ -283,9 +281,9 @@ export default function KabulCaseStudy() {
 
       <footer className="border-t border-neutral-300">
         <div className="container py-8 flex justify-between">
-          <Link href="/#work" className="eyebrow hover:underline">
+          <a href="/#work" className="eyebrow hover:underline">
             ← Selected work
-          </Link>
+          </a>
           <span className="eyebrow text-neutral-500">Kabul · Spatial AI</span>
         </div>
       </footer>
