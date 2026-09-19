@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const metrics = [
   ["53,258", "trips to/from three major green spaces"],
   ["1.30 m", "average overtaking distance at bike accidents"],
@@ -11,7 +9,7 @@ export default function MVGBikeCaseStudy() {
   return (
     <main>
       <header className="container pt-8 md:pt-12">
-        <Link href="/#work" className="eyebrow hover:underline">← Back to selected work</Link>
+        <a href="/#work" className="eyebrow hover:underline">← Back to selected work</a>
       </header>
 
       <section className="container pt-20 md:pt-28 pb-20">
@@ -233,7 +231,7 @@ export default function MVGBikeCaseStudy() {
 
       <footer className="border-t border-neutral-300">
         <div className="container py-8 flex justify-between">
-          <Link href="/#work" className="eyebrow hover:underline">← Selected work</Link>
+          <a href="/#work" className="eyebrow hover:underline">← Selected work</a>
           <span className="eyebrow text-neutral-500">Munich · MVG Bike Analysis</span>
         </div>
       </footer>
