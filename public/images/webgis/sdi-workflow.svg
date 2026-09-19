@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+<rect width="1600" height="900" fill="#f5f5f5"/>
+<rect x="70" y="70" width="1460" height="760" rx="8" fill="white" stroke="#d4d4d4"/>
+<text x="120" y="145" font-family="Arial" font-size="28" fill="#737373">Spatial Data Infrastructure · Planned Land Development</text>
+<text x="120" y="205" font-family="Arial" font-size="52" fill="#171717">Full-stack Web-GIS workflow</text>
+<g font-family="Arial" font-size="24">
+<rect x="120" y="290" width="270" height="150" rx="8" fill="#eef2ff" stroke="#9ca3af"/><text x="155" y="345" fill="#171717">UML conceptual</text><text x="155" y="380" fill="#171717">data model</text><text x="155" y="415" fill="#737373">land · buildings · infrastructure</text>
+<rect x="665" y="290" width="270" height="150" rx="8" fill="#ecfdf5" stroke="#9ca3af"/><text x="720" y="345" fill="#171717">PostGIS</text><text x="720" y="380" fill="#171717">spatial database</text><text x="720" y="415" fill="#737373">constraints · indexes · relations</text>
+<rect x="1210" y="290" width="270" height="150" rx="8" fill="#fff7ed" stroke="#9ca3af"/><text x="1280" y="345" fill="#171717">GeoServer</text><text x="1280" y="380" fill="#171717">WMS + SLD</text><text x="1270" y="415" fill="#737373">topography · cost maps</text>
+<rect x="665" y="570" width="270" height="150" rx="8" fill="#fefce8" stroke="#9ca3af"/><text x="735" y="625" fill="#171717">Leaflet</text><text x="720" y="660" fill="#171717">Web-GIS client</text><text x="695" y="695" fill="#737373">OSM + external SDI layers</text>
+</g>
+<g stroke="#737373" stroke-width="4" fill="none">
+<path d="M390 365 H665"/><path d="M935 365 H1210"/><path d="M800 440 V570"/>
+</g>
+<g font-family="Arial" font-size="20" fill="#525252"><text x="470" y="350">spatial schema</text><text x="1000" y="350">published services</text><text x="820" y="515">interactive map</text></g>
+</svg>
