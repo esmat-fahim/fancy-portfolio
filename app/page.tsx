@@ -13,8 +13,8 @@ const projects = [
     number:"02", category:"Mobility / Spatial Modelling",
     title:"Synthetic Population & Mobility Modelling",
     tools:"MATSim · Python · GIS",
-    imageLabel:"Germany / mobility model",
-    description:"Spatial data processing and quality assurance for synthetic population and mobility modelling, including work with German census-derived 100 m raster data and MATSim-compatible inputs."
+    imageLabel:"Ingolstadt / 3D solar model", image:"/images/solar/lod2-refined.jpg", href:"/work/solar",
+    description:"A CityGML and FME workflow that transformed LOD3 building geometry into a refined LOD2 representation for solar irradiation analysis with TUM’s Sunpot tool."
   },
   {
     number:"03", category:"3D Geospatial Analysis",
