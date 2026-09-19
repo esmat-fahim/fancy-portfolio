@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const metrics = [
   ["547,111 m²", "pilot study area"],
   ["130,235 m²", "building footprint"],
@@ -11,7 +9,7 @@ export default function ILISCaseStudy() {
   return (
     <main>
       <header className="container pt-8 md:pt-12">
-        <Link href="/#work" className="eyebrow hover:underline">← Back to selected work</Link>
+        <a href="/#work" className="eyebrow hover:underline">← Back to selected work</a>
       </header>
 
       <section className="container pt-20 md:pt-28 pb-20">
@@ -250,7 +248,7 @@ export default function ILISCaseStudy() {
 
       <footer className="border-t border-neutral-300">
         <div className="container py-8 flex justify-between">
-          <Link href="/#work" className="eyebrow hover:underline">← Selected work</Link>
+          <a href="/#work" className="eyebrow hover:underline">← Selected work</a>
           <span className="eyebrow text-neutral-500">Munich · ILIS</span>
         </div>
       </footer>
