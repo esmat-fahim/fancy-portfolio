@@ -10,10 +10,10 @@ const projects = [
     description:"A city-scale geospatial AI workflow for mapping Kabul’s informal settlements from very-high-resolution UAV imagery. The work combines manually updated masks, multi-temporal imagery and semantic segmentation with DeepLabV3+ to produce a reproducible mapping asset and examine urban change."
   },
   {
-    number:"02", category:"Mobility / Spatial Modelling",
-    title:"Synthetic Population & Mobility Modelling",
-    tools:"MATSim · Python · GIS",
-    imageLabel:"Ingolstadt / 3D solar model", image:"/images/solar/lod2-refined.jpg", href:"/work/solar",
+    number:"02", category:"3D Geospatial Analysis / Solar Energy",
+    title:"Solar Irradiation Simulation with Refined 3D Building Models",
+    tools:"FME · CityGML · Sunpot",
+    imageLabel:"Ingolstadt / refined LOD2", image:"/images/solar/lod2-refined.jpg", href:"/work/solar",
     description:"A CityGML and FME workflow that transformed LOD3 building geometry into a refined LOD2 representation for solar irradiation analysis with TUM’s Sunpot tool."
   },
   {
