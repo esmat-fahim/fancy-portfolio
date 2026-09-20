@@ -36,3 +36,29 @@ a { color:inherit; text-decoration:none; }
 .map-shape-b{width:55%;height:38%;left:30%;top:39%;background:rgba(56,86,127,.78);clip-path:polygon(0 22%,26% 8%,58% 16%,100% 0,91% 68%,58% 100%,18% 82%)}
 .map-shape-c{width:38%;height:32%;left:45%;top:10%;background:rgba(215,183,22,.72);clip-path:polygon(12% 0,92% 14%,100% 62%,62% 100%,18% 78%,0 30%)}
 .map-legend{position:absolute;right:24px;bottom:22px;display:flex;flex-direction:column;gap:7px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:.08em}
+
+
+/* Immersive opening screen */
+.intro-screen{position:fixed;inset:0;z-index:100;background:#111;color:#f5f4ef;cursor:pointer;overflow:hidden;display:flex;align-items:center;justify-content:center;transition:opacity .8s ease,visibility .8s ease}
+.intro-screen.intro-exit{opacity:0;visibility:hidden;pointer-events:none}
+.intro-content{width:min(1320px,calc(100% - 48px));height:100%;padding:28px 0;display:flex;flex-direction:column;justify-content:space-between;position:relative;z-index:2}
+.intro-top{color:#888}
+.intro-center{display:flex;align-items:center;gap:clamp(28px,5vw,80px);margin:auto 0}
+.intro-name{font-size:clamp(4.5rem,13vw,13rem);line-height:.78;letter-spacing:-.075em;font-weight:500;white-space:nowrap;animation:introName 1s cubic-bezier(.16,1,.3,1) both}
+.intro-name i{font-weight:400}
+.intro-line{height:1px;width:clamp(45px,10vw,150px);background:#555;transform-origin:left;animation:introLine 1s .35s cubic-bezier(.16,1,.3,1) both}
+.intro-thought{font-family:Georgia,serif;font-size:clamp(1.25rem,2.2vw,2.1rem);font-style:italic;color:#aaa;margin:0;animation:introFade 1s .55s ease both}
+.intro-bottom{display:flex;align-items:center;justify-content:space-between;color:#777}
+.intro-enter{border:1px solid #555;background:transparent;color:#f5f4ef;padding:12px 18px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .25s,border-color .25s,transform .25s}
+.intro-enter:hover{background:#f5f4ef;color:#111;border-color:#f5f4ef;transform:translateY(-2px)}
+.intro-enter span{margin-left:20px}
+.intro-noise{position:absolute;inset:-50%;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");animation:noiseMove .25s steps(2) infinite;pointer-events:none}
+.portfolio-hidden{visibility:hidden;height:100vh;overflow:hidden}
+.portfolio-visible{animation:portfolioIn .9s .25s both}
+@keyframes introName{from{opacity:0;transform:translateY(35px);filter:blur(10px)}to{opacity:1;transform:none;filter:none}}
+@keyframes introLine{from{transform:scaleX(0);opacity:0}to{transform:scaleX(1);opacity:1}}
+@keyframes introFade{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:none}}
+@keyframes portfolioIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes noiseMove{0%{transform:translate(0,0)}25%{transform:translate(3%,-2%)}50%{transform:translate(-2%,3%)}75%{transform:translate(2%,2%)}100%{transform:translate(-3%,-1%)}}
+@media(max-width:700px){.intro-content{width:calc(100% - 28px);padding:20px 0}.intro-center{display:block}.intro-line{margin:28px 0 18px}.intro-thought{font-size:1.35rem}.intro-bottom{align-items:flex-end;gap:20px}.intro-bottom .eyebrow{max-width:160px;line-height:1.7}}
+@media(prefers-reduced-motion:reduce){.intro-screen,.intro-name,.intro-line,.intro-thought,.portfolio-visible{animation:none;transition:none}}
