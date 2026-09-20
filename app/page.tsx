@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Nav from "@/components/Nav";
 import ProjectCard from "@/components/ProjectCard";
 
@@ -12,7 +15,7 @@ const projects = [
 
 const skills=["Python","PyTorch","QGIS","ArcGIS","GDAL","Rasterio","GeoPandas","PostGIS","GeoServer","Leaflet","Remote Sensing","Deep Learning","MATSim","FME","Docker","Spatial Analysis"];
 
-export default function Home() {
+function Portfolio() {
  return (<main><Nav />
  <section className="container pt-20 md:pt-32 pb-28 reveal"><div className="max-w-5xl"><div className="eyebrow mb-7">Geospatial Scientist · Spatial AI · Urban Analytics</div><h1 className="text-[clamp(3.5rem,9vw,8.5rem)] leading-[.88] tracking-[-.065em] font-medium">I work with<br />geospatial data<br />to understand<br /><i>places.</i></h1><div className="mt-12 grid md:grid-cols-12 gap-6"><p className="md:col-span-5 md:col-start-7 text-lg leading-7 text-neutral-600">I’m Esmat Fahim, a geospatial scientist working across GIS, remote sensing, spatial machine learning, urban planning and mobility modelling.</p></div></div></section>
  <section id="work" className="container pb-28"><div className="gridline pt-4 mb-10 flex justify-between"><span className="eyebrow">Selected work</span><span className="eyebrow text-neutral-500">01—06</span></div><div className="grid md:grid-cols-2 gap-x-8 gap-y-20">{projects.map((p)=><ProjectCard key={p.number} project={p}/>)}</div></section>
@@ -22,4 +25,33 @@ export default function Home() {
  <section id="contact" className="container py-28"><div className="eyebrow mb-7">Get in touch</div><h2 className="text-[clamp(3rem,8vw,7rem)] leading-[.9] tracking-[-.055em] max-w-5xl">Let’s talk about<br /><i>maps, cities & data.</i></h2><div className="mt-12 flex flex-wrap gap-3"><a href="mailto:YOUR_EMAIL@example.com" className="border border-neutral-900 px-5 py-3 text-sm hover:bg-neutral-900 hover:text-white transition">Email ↗</a><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="border border-neutral-900 px-5 py-3 text-sm hover:bg-neutral-900 hover:text-white transition">LinkedIn ↗</a><a href="https://github.com/" target="_blank" rel="noreferrer" className="border border-neutral-900 px-5 py-3 text-sm hover:bg-neutral-900 hover:text-white transition">GitHub ↗</a><a href="/cv.pdf" className="border border-neutral-900 px-5 py-3 text-sm hover:bg-neutral-900 hover:text-white transition">CV ↓</a></div></section>
  <footer className="border-t border-neutral-300"><div className="container py-6 flex justify-between text-xs text-neutral-500"><span>© {new Date().getFullYear()} Esmat Fahim</span><span>Geospatial Science · Germany</span></div></footer>
  </main>);
+}
+
+export default function Home() {
+ const [entered, setEntered] = useState(false);
+ useEffect(() => {
+   const onKey = (e: KeyboardEvent) => { if (e.key === "Enter" || e.key === " ") setEntered(true); };
+   window.addEventListener("keydown", onKey);
+   return () => window.removeEventListener("keydown", onKey);
+ }, []);
+ return (
+   <>
+     <section className={`intro-screen ${entered ? "intro-exit" : ""}`} onClick={() => setEntered(true)} aria-label="Enter portfolio">
+       <div className="intro-noise" />
+       <div className="intro-content">
+         <div className="intro-top eyebrow">ESMAT FAHIM / GEOSPATIAL SCIENTIST</div>
+         <div className="intro-center">
+           <div className="intro-name">Esmat<br/><i>Fahim.</i></div>
+           <div className="intro-line" />
+           <p className="intro-thought">I map the invisible.</p>
+         </div>
+         <div className="intro-bottom">
+           <span className="eyebrow">GIS · SPATIAL AI · CITIES</span>
+           <button className="intro-enter" onClick={(e) => { e.stopPropagation(); setEntered(true); }}>Enter <span>↗</span></button>
+         </div>
+       </div>
+     </section>
+     <div className={entered ? "portfolio-visible" : "portfolio-hidden"}><Portfolio /></div>
+   </>
+ );
 }
