@@ -2,7 +2,7 @@ type Project={number:string;title:string;category:string;description:string;tool
 
 export default function ProjectCard({project}:{project:Project}){
  const content=<>
-  <div className="project-image${project.image?" project-image-photo":""}">
+  <div className={`project-image${project.image ? " project-image-photo" : ""}`}>
    {project.image&&<img src={project.image} alt="" className="project-image-img" />}
    {!project.image&&<span>{project.imageLabel}</span>}
    {project.image&&<span>{project.imageLabel}</span>}
