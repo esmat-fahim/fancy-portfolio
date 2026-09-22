@@ -189,12 +189,12 @@ export default function SolarCaseStudy() {
               <div className="mt-14">
                 <figure className="overflow-hidden border border-neutral-200 bg-neutral-100">
                   <img
-                    src="/images/solar/lod2-refined.jpg"
-                    alt="LOD2 and refined LOD2 building comparison"
+                    src="/images/solar/solar-irradiation-comparison.png"
+                    alt="Solar irradiation comparison between conventional LOD2 and refined 3D building geometry"
                     className="block w-full h-auto"
                   />
                   <figcaption className="px-4 py-3 text-xs text-neutral-500">
-                    Building geometry comparison used in the project
+                    Solar irradiation simulation · conventional LOD2 versus refined 3D building geometry
                   </figcaption>
                 </figure>
               </div>
